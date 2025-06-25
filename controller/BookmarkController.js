@@ -1,1 +1,1 @@
- 
+const Bookmark = require('../model/BookmarkSchema');

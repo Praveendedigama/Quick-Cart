@@ -1,1 +1,1 @@
-const PaymentMethod = require('../model/PaymentMethodSchema');
+const PaymentMethod = require('../model/PayementMethodSchema');

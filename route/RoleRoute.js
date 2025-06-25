@@ -1,7 +1,5 @@
-const express =require('express');
+const express = require('express');
 const router = express.Router();
-const RoleController = require('../controller/RoleController');
+const roleController = require('../controller/RoleController');
 
-//code here
-
-module.exports = router;
+router.post('/create', roleController.createRole);  // Example line

@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000; //check
 const BookmarkRoute = require('./route/BookmarkRoute'); 
 const CartRoute = require('./route/CartRoute'); 
 const CategoryRoute = require('./route/CategoryRoute'); 
-const DealeRoute = require('./route/DealRoute'); 
+const DealRoute = require('./route/DealRoute'); 
 const OrderRoute = require('./route/OrderRoute'); 
 const PaymentMethodRoute = require('./route/PaymentMethodRoute'); 
 const PaymentRoute = require('./route/PaymentRoute'); 
@@ -22,18 +22,18 @@ const VoucherDetailsRoute = require('./route/VoucherDetailsRoute');
 
 const app = express();
 app.use(bodyParser.json());
-mangoose.connect('mongodb://127.0.0.1:27017/quick_cart_db',).then(() => {
+mongoose.connect('mongodb://127.0.0.1:27017/quick_cart_db').then(() => {
     console.log('Connected to Database');
-}
-).catch((err) => {
+}).catch((err) => {
     console.error('Error connecting to MongoDB:', err);
-}
-);
+});
+
+
 
 app.use('/api/v1/bookmarks', BookmarkRoute);//check
 app.use('/api/v1/cart', CartRoute);
 app.use('/api/v1/categories', CategoryRoute);
-app.use('/api/v1/dealers', DealeRoute);
+app.use('/api/v1/dealers', DealRoute);
 app.use('/api/v1/orders', OrderRoute);
 app.use('/api/v1/paymentmethods', PaymentMethodRoute);
 app.use('/api/v1/payments', PaymentRoute);
@@ -49,4 +49,4 @@ app.use('/api/v1/voucherdetails', VoucherDetailsRoute);
 app.listen(port, () => {
     console.log(`Server up & running on port ${port}`);
 }
-);  
+);
